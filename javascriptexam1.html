@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h1 style="text-align: center; color: #0066ff;">Calculator</h1>
+  <label for="num1">First Number:</label>
+  <input type="text" id="num1">
+  <select id="operator" name="operator">
+    <option disabled selected>Select Operation</option>
+    <option value="add">Addition</option>
+    <option value="subtract">Subtraction</option>
+    <option value="multiply">Multiplication</option>
+    <option value="divide">Division</option>
+  </select>
+  <label for="num2">Second Number:</label>
+  <input type="text" id="num2">
+  <button onclick="Answer()">=</button>
+  <p id="result">Result</p>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+    function subtract(a, b) {
+      return a - b;
+    }
+    function multiply(a, b) {
+      return a * b;
+    }
+    function divide(a, b) {
+      if (b !== 0)
+       {
+        return a / b;
+      } else {
+        return "cannot divide by zero";
+      }
+    }
+    function Answer() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const operator = document.getElementById('operator').value;
+      let result;
+      
+      if (isNaN(num1) || isNaN(num2) || operator === "Select Operation") {
+        result = "Please enter valid numbers and select an operation";
+      } else {
+        switch (operator) {
+          case 'add':
+            result = add(num1, num2);
+            break;
+          case 'subtract':
+            result = subtract(num1, num2);
+            break;
+          case 'multiply':
+            result = multiply(num1, num2);
+            break;
+          case 'divide':
+            result = divide(num1, num2);
+            break;
+          default:
+            result = "Invalid Operation";
+        }
+      }
+      
+      document.getElementById('result').innerHTML = "Result: " + (isNaN(result) ? "Please enter valid numbers and operators" : result);
+    }
+  </script>
+</body>
+</html>

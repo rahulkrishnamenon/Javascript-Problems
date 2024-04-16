@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LIST</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid mt-5">
+      <h2>First List</h2>
+      <ul id="list1" onclick="moveList(this,'list2')">
+        <li>HTML</li>
+        <li>CSS </li>
+        <li>Bootsrap</li>
+      </ul>
+        <h2>Second List</h2>
+      <ul id="list2" onclick="moveList(this,'list1')">
+        <li>Python</li>
+        <li>Javascript</li>
+        <li>Java</li>
+      </ul>
+  </div>
+  <script>
+
+    function moveList(original, replaced) {
+    var x = original;
+    var replaced = document.getElementById(replaced);
+
+      if (x !== replaced) {
+
+      var replaceitem = original.querySelector("li");
+        if(replaceitem){
+          original.removeChild(replaceitem);
+          replaced.appendChild(replaceitem);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

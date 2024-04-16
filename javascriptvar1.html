@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pizza</title>
+</head>
+<body>
+	<p id="pizza"></p>
+	<script>
+		let pizza = ''
+
+		const rows = 5;
+
+		for (let i = 0; i < rows; i++) {
+			const stars = '*'.repeat(rows - i);
+			const spaces = '&nbsp&nbsp'.repeat(i);
+			pizza += spaces + stars + '<br>';
+		}
+		document.getElementById('pizza').innerHTML = pizza; 
+	</script>
+</body>
+</html>
